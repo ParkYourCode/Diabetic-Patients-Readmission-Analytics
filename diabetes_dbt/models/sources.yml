@@ -1,0 +1,9 @@
+version: 2
+
+sources:
+  - name: bronze
+    database: diabetes-readmission-data
+    schema: diabetes_readmission_dataset
+    tables:
+      - name: diabetic_data
+        description: "Raw diabetes readmission data from BigQuery"
