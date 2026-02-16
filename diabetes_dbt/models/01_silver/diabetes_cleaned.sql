@@ -53,7 +53,11 @@ cleaned AS (
         metformin_pioglitazone,
         change,
         diabetesMed,
-        readmitted
+        readmitted,
+        CASE
+            WHEN readmitted = '<30' THEN 1
+            ELSE 0
+        END AS readmitted_30_days
     FROM source
     WHERE discharge_disposition_id NOT IN (11, 13, 14, 18, 19, 20, 21)
     AND (diag_1 != '?' OR diag_2 != '?' OR diag_3 != '?')
